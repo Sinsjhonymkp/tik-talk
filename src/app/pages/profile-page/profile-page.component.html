@@ -1,0 +1,44 @@
+@if (profile$ | async; as profile ){
+
+<header class="profile-page__header">
+    <app-profile-header [profile]="profile">
+
+    </app-profile-header>
+    @if (myId){
+    <a *ngIf="profile.id === myId" [routerLink]="['/settngs']" class="btn to-settings-btn">редактировать
+        <svg icon='settings' class="to-settings-icon"></svg>
+    </a>
+    }
+</header>
+<main class="profile-page__body">
+    <app-post-feed>
+    </app-post-feed>
+    <div class="profile-info">
+        <div class="profile-subscribers">
+            <h2 class="medium-text mb16 profile-subscribers-h2">Подписчики</h2>
+            <div class="profile-images">
+                @for(subscribers of subscribers$ | async; track subscribers.id){
+                <a [routerLink]="['/profile', subscribers.id]">
+                    <img class="profile-subscribers-img" [src]='subscribers.avatarUrl | imgUrl'
+                        [alt]='subscribers.lastName'>
+                </a>
+                }
+            </div>
+        </div>
+        <div class="profile-skils mb16 mt20">
+            <h2 class="medium-text mb20 ">Навыки</h2>
+            <div class="profile-skils-items">
+                @for(skill of profile.stack; track skill){
+                <div class="skill-tag">{{skill}}</div>
+                }
+            </div>
+            <div class="profile-description  mb16 mt20">
+                <h2 class="medium-text mb20">Описание</h2>
+                <span class="profile-description-text">{{profile.description}}</span>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+}

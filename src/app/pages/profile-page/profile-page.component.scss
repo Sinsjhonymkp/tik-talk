@@ -1,0 +1,51 @@
+:host{
+    display: grid;
+                  
+}
+.profile-page__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+.profile-page__body{
+   padding: 24px;
+    display: flex;
+    justify-content: space-around;
+}
+.to-settings-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 170px;
+    gap: 5px;    
+    height: 45px;
+
+}
+    
+.to-settings-icon{
+    width: 16px;
+    height: 16px;
+    fill: var(--dark-color)
+}
+.profile-images{
+    display: flex;
+    gap: 10px;
+}
+.profile-subscribers-img{
+   
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}
+.profile-skils-items{
+    display: flex;
+    max-width: 500px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.profile-description{
+    max-width: 500px;
+}

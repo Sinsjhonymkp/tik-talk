@@ -1,0 +1,41 @@
+<a [routerLink]="['/']"><img src="/assets/img/Logo_mini.png" alt="logo" class="sidebar-logo ml16 mb20 "></a>
+<nav>
+    <ul class="main-menu-list">
+
+        <li *ngFor=" let menuItem of menuItems">
+            <a class="menu-item" routerLink={{menuItem.link}}>
+                <svg class="menu-item__svg" icon={{menuItem.icon}}></svg>
+                <span>{{menuItem.label}}</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<p class="medium-text sidebar-subscribers mb20">Подписчики</p>
+
+
+
+@for(profile of subscribers$ | async; track profile.id){
+<a [routerLink]="['profile/', profile.id]">
+    <app-subscriber-card [profile]="profile"></app-subscriber-card>
+</a>
+
+}
+
+<div class="mt20 to-subscribers">
+    <a [routerLink]="['/subscribers']" class="to-subscribers-link medium-text">
+        Все подписчики
+    </a>
+    <svg icon='arrow' class="to-subscribers-icon"></svg>
+</div>
+<a [routerLink]="['profile/me']" class="me-item">
+    @if(me(); as me){
+    @if(me.avatarUrl){
+    <img class="subscriber-avatar " [src]="me.avatarUrl | imgUrl" [alt]="me.lastName">
+    }
+    @else {
+    <img class="subscriber-avatar" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" [alt]="me.lastName">
+    }
+    <strong class="subtitle ">{{me.username}}</strong>
+    }
+</a>

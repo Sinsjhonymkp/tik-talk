@@ -1,0 +1,33 @@
+:host {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100dvh;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5%;
+    grid-gap: 60px;
+
+}
+
+.login-form {
+    justify-self: end;
+    max-width: 440px;
+    width: 100%;
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-eye-btn {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    top: 12px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    fill: #FFFFFF8F;
+}
