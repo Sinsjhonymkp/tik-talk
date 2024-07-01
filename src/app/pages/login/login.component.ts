@@ -30,7 +30,7 @@ export class LoginComponent {
     if (this.form.valid) {
       this.authServise.login(this.form.value)
         .subscribe(res => {
-          this.router.navigate([''])
+          this.router.navigate(['/search'])
           console.log(res)
         })
     }

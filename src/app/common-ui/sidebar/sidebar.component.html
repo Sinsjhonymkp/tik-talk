@@ -3,7 +3,7 @@
     <ul class="main-menu-list">
 
         <li *ngFor=" let menuItem of menuItems">
-            <a class="menu-item" routerLink={{menuItem.link}}>
+            <a class="menu-item" routerLink={{menuItem.link}} routerLinkActive="active">
                 <svg class="menu-item__svg" icon={{menuItem.icon}}></svg>
                 <span>{{menuItem.label}}</span>
             </a>
@@ -16,7 +16,7 @@
 
 
 @for(profile of subscribers$ | async; track profile.id){
-<a [routerLink]="['profile/', profile.id]">
+<a [routerLink]="['profile/', profile.id]" routerLinkActive="active">
     <app-subscriber-card [profile]="profile"></app-subscriber-card>
 </a>
 

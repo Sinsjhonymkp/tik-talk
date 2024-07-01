@@ -1,0 +1,10 @@
+.profile-search-form{
+background: var(--black-color);
+padding: 16px 20px;
+border: 1px solid var(--light-color);
+display: grid;
+align-items: center;
+justify-content: center;
+grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+grid-gap: 40px;
+}

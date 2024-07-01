@@ -31,7 +31,6 @@
     &:focus-visible{
         background: var(--dark-hover-color);
         color:var(--primary-color);
-        color:var(--primary-color);
         .menu-item__svg {
             fill:var(--primary-color);
         }
@@ -87,6 +86,15 @@
     line-height: 16px;
 }
 .subscriber-avatar{
+    border-radius: 50%;
     width: 25px;
     height: 25px;
+}
+.active{ 
+     background: var(--dark-hover-color);
+    color:var(--primary-color);
+    cursor:pointer;
+    .menu-item__svg {
+        fill:var(--primary-color);
+    }
 }

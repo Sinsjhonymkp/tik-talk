@@ -14,13 +14,13 @@ export class ProfileService {
   http: HttpClient = inject(HttpClient);
 
   me = signal<Iprofile | null>(null);
-  
-
+  filteredProfiles = signal<Iprofile[]>([]);
 
 
 
   getTestAccounts() {
     return this.http.get<Iprofile[]>(`${this.baseApiUrl}/account/test_accounts`)
+    
   }
 
   getMe() {
@@ -51,5 +51,15 @@ uploadAvatar(file:File){
   const fd = new FormData();
   fd.append('image', file);
   return this.http.post<Iprofile>(`${this.baseApiUrl}/account/upload_image`, fd)
+}
+
+filterProfiles(params:Record<string, any>){
+  return this.http.get<Pageble<Iprofile>>(`${this.baseApiUrl}/account/accounts`,
+   {
+     params
+    }
+  ).pipe(
+    tap(res => this.filteredProfiles.set(res.items))
+  )
 }
 }
